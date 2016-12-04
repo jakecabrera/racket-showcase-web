@@ -7,7 +7,8 @@
   (response/xexpr
    '(html (head (title "Racket Heroku App"))
           (body (h1 "It works! lol")
-                (p "Update successful!")))))
+                (p "Update successful!")
+                (p "Another update!")))))
 
 (define port (if (getenv "PORT")
                  (string->number (getenv "PORT"))
