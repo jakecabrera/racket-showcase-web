@@ -9,7 +9,7 @@
   (response/xexpr
    '(html (head
            (link ((rel "stylesheet")
-                  (href "/test-static.css")
+                  (href "/stylesheet.css")
                   (type "text/css")
                   ))
            (title "Racket Heroku App"))
