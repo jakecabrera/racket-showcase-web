@@ -3,7 +3,7 @@
 (require web-server/servlet
          web-server/servlet-env)
 
-(static-files-path "stylesheets")
+(static-files-path "app/stylesheets")
 
 (define (start req)
   (response/xexpr
