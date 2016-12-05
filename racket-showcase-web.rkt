@@ -13,7 +13,8 @@
                   (type "text/css")
                   ))
            (title "Racket Heroku App"))
-          (body (h1 "It works! lol")))))
+          (body (h1 "It works! lol")
+                (p "And it is starting to look good!")))))
 
 (define port (if (getenv "PORT")
                  (string->number (getenv "PORT"))
