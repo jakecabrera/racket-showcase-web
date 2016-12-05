@@ -3,13 +3,13 @@
 (require web-server/servlet
          web-server/servlet-env)
 
-(static-files-path "app/stylesheets")
+(static-files-path "stylesheets")
 
 (define (start req)
   (response/xexpr
    '(html (head
            (link ((rel "stylesheet")
-                  (href "/style.css")
+                  (href "/test-static.css")
                   (type "text/css")
                   ))
            (title "Racket Heroku App"))
