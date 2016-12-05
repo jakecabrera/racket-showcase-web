@@ -1,14 +1,19 @@
-#lang racket
+#lang web-server/insta
 
 (require web-server/servlet
          web-server/servlet-env)
 
+(static-files-path "stylesheets")
+
 (define (start req)
   (response/xexpr
-   '(html (head (title "Racket Heroku App"))
-          (body (h1 "It works! lol")
-                (p "Update successful!")
-                (p "Another update!")))))
+   '(html (head
+           (link ((rel "stylesheet")
+                  (href "/style.css")
+                  (type "text/css")
+                  ))
+           (title "Racket Heroku App"))
+          (body (h1 "It works! lol")))))
 
 (define port (if (getenv "PORT")
                  (string->number (getenv "PORT"))
