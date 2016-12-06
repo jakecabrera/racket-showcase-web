@@ -3,7 +3,7 @@
 (require web-server/servlet
          web-server/servlet-env)
 
-(static-files-path "stylesheets")
+(static-files-path (string-append (path->string (current-directory)) "stylesheets"))
 
 (define (start req)
   (response/xexpr
@@ -14,7 +14,8 @@
                   ))
            (title "Racket Heroku App"))
           (body (h1 "It works! lol")
-                (p "And it is starting to look good!")))))
+                (p "And it is starting to look good!")
+                (p (path->string (current-directory)))))))
 
 (define port (if (getenv "PORT")
                  (string->number (getenv "PORT"))
