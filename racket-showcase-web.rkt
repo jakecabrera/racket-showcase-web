@@ -10,10 +10,8 @@
 (define (start req)
   (response/xexpr
    `(html (head
-           (link ((rel "stylesheet")
-                  (href "/style.css")
-                  (type "text/css")
-                  ))
+           (style "html {background-color: cyan;}"
+                  "p {color: red;}")
            (title "Racket Heroku App"))
           (body (h1 "It works! lol")
                 (p ,words)
