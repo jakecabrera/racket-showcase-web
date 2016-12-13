@@ -9,14 +9,14 @@
 
 (define (start req)
   (response/xexpr
-   '(html (head
+   `(html (head
            (link ((rel "stylesheet")
                   (href "/style.css")
                   (type "text/css")
                   ))
            (title "Racket Heroku App"))
           (body (h1 "It works! lol")
-                (p words)
+                (p ,words)
                 ))))
 
 (define port (if (getenv "PORT")
