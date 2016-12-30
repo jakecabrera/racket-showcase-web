@@ -39,6 +39,6 @@
 (serve/servlet start
                #:servlet-path "/"
                #:listen-ip #f
-               #:extra-files-paths (list (string->path (string-append (path->string (current-directory)) "StaticFiles")))
+               #:extra-files-paths (list (string->path (string-append (path->string (current-directory)) "app/StaticFiles")))
                #:port port
                #:command-line? #f)
