@@ -5,9 +5,9 @@
 
 (define words "Hello world!")
 
-(define (more-words) "howdy! Try dragging 'Hello World' around!")
+(define (more-words) "Howdy! Try dragging 'Hello World' around!")
 
-(define cwd (string-append (path->string (current-directory)) (if (directory-exists? "app") "app" "")))
+(define cwd (string-append (path->string (current-directory)) (if (directory-exists? "app") "app/" "")))
 
 (define (start req)
   (response/xexpr
