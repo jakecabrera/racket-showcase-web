@@ -7,7 +7,9 @@
 
 (define (more-words) "Howdy! Try dragging 'Hello World' around!")
 
-(define cwd (string-append (path->string (current-directory)) (if (directory-exists? "app") "app/" "")))
+(define heroku? (directory-exists? "app"))
+
+(define cwd (string-append (path->string (current-directory)) (if heroku? "app/" "")))
 
 (define (start req)
   (response/xexpr
@@ -33,4 +35,4 @@
                #:listen-ip #f
                #:extra-files-paths (list (string->path (string-append cwd "StaticFiles")))
                #:port port
-               #:command-line? #f)
+               #:command-line? heroku?)
