@@ -5,14 +5,9 @@
 
 (define words "Hello world!")
 
-(define (more-words) "howdy!")
+(define (more-words) "howdy! Try dragging 'Hello World' around!")
 
-(define place (path->string (current-directory)))
-
-(define (stuff lst)
-  (let ((lst1 (map path->string lst)))
-    (if (empty? lst) ""
-        (string-append (first lst1) "       " (stuff (rest lst))))))
+(define cwd (string-append (path->string (current-directory)) (if (directory-exists? "app") "app" "")))
 
 (define (start req)
   (response/xexpr
@@ -25,11 +20,8 @@
            (script ((type "text/javascript")
                     (src "/app.js")))
            (title "Racket Heroku App"))
-          (body (h1 "It works! lol")
+          (body (h1 ,words)
                 (p ,(more-words))
-                (p ,(path->string (current-directory)))
-                (p ,place)
-                (p ,(stuff (directory-list place)))
                 ))))
 
 (define port (if (getenv "PORT")
@@ -39,6 +31,6 @@
 (serve/servlet start
                #:servlet-path "/"
                #:listen-ip #f
-               #:extra-files-paths (list (string->path (string-append (path->string (current-directory)) "app/StaticFiles")))
+               #:extra-files-paths (list (string->path (string-append cwd "StaticFiles")))
                #:port port
                #:command-line? #f)
